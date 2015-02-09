@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/scrollView">
+
+
+
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/layoutRating">
+
+            <TextSwitcher
+                android:id="@+id/submissionTxt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+               >
+
+            </TextSwitcher>
+
+        </ScrollView>
+
+
+        <LinearLayout
+            android:id="@+id/layoutRating"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+           android:layout_centerHorizontal="true">
+
+            <ImageButton
+                android:id="@+id/rateUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/thumb_up"
+                android:layout_margin="10dp"/>
+            <ImageButton
+                android:id="@+id/write"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/thumb_write"
+                android:layout_margin="10dp"/>
+
+            <ImageButton
+                android:id="@+id/rateDown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/thumb_down"
+                android:layout_margin="10dp"/>
+            </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>
