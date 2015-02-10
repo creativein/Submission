@@ -10,7 +10,7 @@ import retrofit.converter.GsonConverter;
  * Created by LENOVO PC on 09-02-2015.
  */
 public class RestClient {
-    private static final String BASE_URL = "http://192.168.152.50/webservice/index.php";
+    private static final String BASE_URL = "http://techboys.16mb.com/webservice/index.php";
     private Service apiService;
 
     public RestClient()

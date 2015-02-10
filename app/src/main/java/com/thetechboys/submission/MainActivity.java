@@ -1,13 +1,18 @@
 package com.thetechboys.submission;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.view.MotionEventCompat;
+import android.util.Log;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
@@ -30,10 +35,12 @@ import retrofit.client.Response;
  */
 public class MainActivity extends Activity {
     private SimpleGestureFilter detector;
-    private ImageButton rateUp, rateDown;
+    private ImageButton rateUp, rateDown, write;
     private TextSwitcher textSwitcher;
+    private Button prev, next;
     private List<Submission> posts;
     int currentIndex = -1;
+    private String DEBUG_TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,11 +49,27 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         rateUp = (ImageButton) findViewById(R.id.rateUp);
         rateDown = (ImageButton) findViewById(R.id.rateDown);
+        write = (ImageButton) findViewById(R.id.write);
+        prev = (Button) findViewById(R.id.prev);
+        next = (Button) findViewById(R.id.next);
         textSwitcher = (TextSwitcher) findViewById(R.id.submissionTxt);
-        Animation in = AnimationUtils.loadAnimation(MainActivity.this,android.R.anim.fade_in);
-        Animation out = AnimationUtils.loadAnimation(MainActivity.this,android.R.anim.fade_out);
+        Animation in = AnimationUtils.loadAnimation(MainActivity.this, android.R.anim.fade_in);
+        Animation out = AnimationUtils.loadAnimation(MainActivity.this, android.R.anim.fade_out);
         textSwitcher.setInAnimation(in);
         textSwitcher.setOutAnimation(out);
+        prev.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPrvPost();
+            }
+        });
+
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showNxtPost();
+            }
+        });
         textSwitcher.setFactory(new ViewSwitcher.ViewFactory() {
             @Override
             public View makeView() {
@@ -78,11 +101,21 @@ public class MainActivity extends Activity {
         } catch (Exception e) {
             Toast.makeText(MainActivity.this, "Oops This application is going to die.", Toast.LENGTH_LONG).show();
         }
+
+        write.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent postActivity = new Intent(MainActivity.this, PostActivity.class);
+                startActivity(postActivity);
+            }
+        });
+
     }
 
-    private void showNxtPost(){
+
+    private void showNxtPost() {
         --currentIndex;
-        if(currentIndex<0){
+        if (currentIndex < 0) {
             currentIndex = posts.size() - 1;
         }
 
@@ -90,9 +123,9 @@ public class MainActivity extends Activity {
 
     }
 
-    private void showPrvPost(){
+    private void showPrvPost() {
         ++currentIndex;
-        if(currentIndex > (posts.size()-1)){
+        if (currentIndex > (posts.size() - 1)) {
             currentIndex = 0;
         }
 

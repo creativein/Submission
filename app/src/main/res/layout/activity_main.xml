@@ -1,33 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+
             android:layout_alignParentTop="true"
-            android:layout_above="@+id/scrollView">
+            android:orientation="horizontal"
+            android:weightSum="2">
 
+            <Button
+                android:id="@+id/prev"
+                android:text="Prev"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
 
+            <Button
+                android:id="@+id/next"
+                android:text="Next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
 
         </LinearLayout>
 
         <ScrollView
             android:id="@+id/scrollView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/layoutRating">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout"
+          >
 
             <TextSwitcher
                 android:id="@+id/submissionTxt"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-               >
+                android:paddingTop="20dp">
 
             </TextSwitcher>
 
@@ -36,31 +52,32 @@
 
         <LinearLayout
             android:id="@+id/layoutRating"
-            android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-           android:layout_centerHorizontal="true">
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/rateUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/thumb_up"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:background="@drawable/thumb_up" />
+
             <ImageButton
                 android:id="@+id/write"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/thumb_write"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp"
+                android:background="@drawable/thumb_write" />
 
             <ImageButton
                 android:id="@+id/rateDown"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/thumb_down"
-                android:layout_margin="10dp"/>
-            </LinearLayout>
+                android:layout_margin="10dp"
+                android:background="@drawable/thumb_down" />
+        </LinearLayout>
     </RelativeLayout>
 </LinearLayout>
