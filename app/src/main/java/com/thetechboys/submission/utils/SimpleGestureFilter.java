@@ -36,10 +36,10 @@ public class SimpleGestureFilter extends SimpleOnGestureListener {
         this.listener = sgl;
     }
 
-    public void onTouchEvent(MotionEvent event) {
+    public boolean onTouchEvent(MotionEvent event) {
 
         if (!this.running)
-            return;
+            return false;
 
         boolean result = this.detector.onTouchEvent(event);
 
@@ -58,6 +58,7 @@ public class SimpleGestureFilter extends SimpleOnGestureListener {
 
         }
         //else just do nothing, it's Transparent
+        return result;
     }
 
     public void setMode(int m) {
@@ -158,10 +159,14 @@ public class SimpleGestureFilter extends SimpleOnGestureListener {
         return false;
     }
 
-    static interface SimpleGestureListener {
+    public static interface SimpleGestureListener {
         void onSwipe(int direction);
 
         void onDoubleTap();
     }
 
+    @Override
+    public boolean onDown(MotionEvent e) {
+        return true;
+    }
 }

@@ -18,17 +18,19 @@
 
             <Button
                 android:id="@+id/prev"
-                android:text="Prev"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:text="Prev"
+                android:visibility="gone"/>
 
             <Button
                 android:id="@+id/next"
-                android:text="Next"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:text="Next"
+                android:visibility="gone"/>
 
         </LinearLayout>
 
@@ -36,8 +38,7 @@
             android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/linearLayout"
-          >
+            android:layout_below="@+id/linearLayout">
 
             <TextSwitcher
                 android:id="@+id/submissionTxt"

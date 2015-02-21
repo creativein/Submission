@@ -9,6 +9,8 @@ import org.json.JSONObject;
 import java.util.List;
 
 import retrofit.Callback;
+import retrofit.http.Field;
+import retrofit.http.FormUrlEncoded;
 import retrofit.http.GET;
 import retrofit.http.POST;
 import retrofit.http.Path;
@@ -21,7 +23,7 @@ public interface Service {
     @GET("/submission")
     public void getSubmissions(Callback<List<Submission>> cb);
 
-   /* @FormUrlEncoded
-    @POST("/submission/add")
-    public void postSubmission(@Field("postTxt") String post,Callback<JSONObject> cb);*/
+    @FormUrlEncoded
+    @POST("/post")
+    public void postSubmission(@Field("postTxt") String post,Callback<JSONObject> cb);
 }

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
 
@@ -7,18 +9,31 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:inputType="textMultiLine"
+        android:layout_margin="5dp"
         android:ems="10"
         android:id="@+id/editText"
-        android:text="@string/submission_post_instruction_text"
+        android:hint="@string/submission_post_instruction_text"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/post"/>
 
-    <Button
+    <mehdi.sakout.fancybuttons.FancyButton
         android:id="@+id/post"
+        android:layout_margin="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Post It!!!"
-        android:layout_alignParentBottom="true"
+        android:layout_height="50dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        fancy:borderColor="#FFFFFF"
+        fancy:borderWidth="1dp"
+        fancy:defaultColor="#7ab800"
+        fancy:focusColor="#9bd823"
+        fancy:radius="30dp"
+        android:ems="10"
+        fancy:text="Post"
+        fancy:textColor="#FFFFFF"
+        android:layout_alignParentBottom="true"/>
  />
 </RelativeLayout>
